@@ -1,0 +1,2457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <!-- CSS Files -->
+    <link rel="stylesheet" href="assets/css/base.css">
+    <link rel="stylesheet" href="assets/css/components.css">
+    <link rel="stylesheet" href="assets/css/themes.css">
+    <link rel="stylesheet" href="assets/css/animations.css">
+    <link rel="stylesheet" href="assets/css/chatbot.css">
+    <link rel="stylesheet" href="assets/css/game.css">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Not Sell Coin (NSC) - Ultimate Hold Token with anti-dump protection and automatic reward system">
+    <meta name="keywords" content="crypto, token, nsc, not sell coin, blockchain, defi, cryptocurrency, hold token">
+    <meta name="author" content="Not Sell Coin Team">
+    <meta property="og:title" content="Not Sell - NSC | Ultimate Hold Token">
+    <meta property="og:description" content="Anti-dump mechanism with automatic rewards for long-term holders">
+    <meta property="og:image" content="https://apricot-select-bird-538.mypinata.cloud/ipfs/bafybeihlqyynsp4ggbyhnl25paoftubfddzklwapxinfjhlqkozuftixne">
+    <meta property="og:url" content="https://notsellcoin.com">
+    <meta name="twitter:card" content="summary_large_image">
+    
+    <title>Not Sell - NSC | Ultimate Hold Token</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="https://apricot-select-bird-538.mypinata.cloud/ipfs/bafybeihlqyynsp4ggbyhnl25paoftubfddzklwapxinfjhlqkozuftixne" type="image/x-icon">
+    <link rel="apple-touch-icon" href="https://apricot-select-bird-538.mypinata.cloud/ipfs/bafybeihlqyynsp4ggbyhnl25paoftubfddzklwapxinfjhlqkozuftixne">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <!-- Clipboard.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.10/clipboard.min.js"></script>
+    
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <style>
+        /* Base Styles */
+        :root {
+            --primary: #FFD700; /* Gold */
+            --primary-dark: #D4AF37;
+            --secondary: #000000; /* Black */
+            --dark: #121212;
+            --light: #f5f5f5;
+            --success: #00b894;
+            --warning: #f6c23e;
+            --danger: #e74a3b;
+            --info: #36b9cc;
+            --card-bg: rgba(255, 215, 0, 0.05);
+            --transition: all 0.3s ease;
+            --nav-bg: rgba(18, 18, 18, 0.95);
+            --text-color: #ffffff;
+            --text-secondary: rgba(255, 255, 255, 0.7);
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.12);
+            --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.1);
+            --shadow-xl: 0 20px 50px rgba(0, 0, 0, 0.2);
+        }
+        
+        .light-theme {
+            --primary: #D4AF37;
+            --secondary: #333333;
+            --dark: #f5f5f5;
+            --light: #121212;
+            --card-bg: rgba(212, 175, 55, 0.05);
+            --nav-bg: rgba(245, 245, 245, 0.95);
+            --text-color: #333333;
+            --text-secondary: rgba(51, 51, 51, 0.7);
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.05);
+            --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.05);
+            --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--dark);
+            color: var(--text-color);
+            line-height: 1.6;
+            transition: var(--transition);
+            overflow-x: hidden;
+        }
+        
+        /* Skip to Content Link */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: var(--primary);
+            color: var(--secondary);
+            padding: 8px;
+            z-index: 100;
+            transition: top 0.3s;
+        }
+        
+        .skip-link:focus {
+            top: 0;
+        }
+        
+        /* Focus styles for accessibility */
+        :focus-visible {
+            outline: 2px solid var(--primary);
+            outline-offset: 4px;
+        }
+        
+        /* Navbar Styles */
+        .nav-container {
+            background: var(--nav-bg);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 0 2rem;
+            box-shadow: var(--shadow-sm);
+            border-bottom: 1px solid rgba(255, 215, 0, 0.1);
+            transition: var(--transition);
+        }
+        
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+            height: 70px;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text-color);
+            transition: var(--transition);
+            text-decoration: none;
+        }
+        
+        .logo:hover {
+            transform: scale(1.02);
+        }
+        
+        .logo img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .nav-menu {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .nav-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+            padding: 0.5rem 0;
+            text-decoration: none;
+        }
+        
+        .nav-link:hover {
+            color: var(--primary);
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: var(--transition);
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .nav-utils {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+        
+        .theme-toggle {
+            background: transparent;
+            border: none;
+            color: var(--text-color);
+            cursor: pointer;
+            font-size: 1.1rem;
+            position: relative;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+        
+        .theme-toggle:hover {
+            background: rgba(255, 215, 0, 0.1);
+            color: var(--primary);
+        }
+        
+        .theme-icon {
+            position: absolute;
+            transition: var(--transition);
+            transform: scale(1);
+        }
+        
+        .theme-icon.light {
+            opacity: 0;
+            transform: scale(0.5) rotate(90deg);
+        }
+        
+        .theme-icon.dark {
+            opacity: 1;
+            transform: scale(1) rotate(0);
+        }
+        
+        .light-theme .theme-icon.light {
+            opacity: 1;
+            transform: scale(1) rotate(0);
+        }
+        
+        .light-theme .theme-icon.dark {
+            opacity: 0;
+            transform: scale(0.5) rotate(-90deg);
+        }
+        
+        .wallet-button {
+            background: var(--primary);
+            color: var(--secondary);
+            border: none;
+            padding: 0.6rem 1.2rem;
+            border-radius: 30px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .wallet-button:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .wallet-button.connected {
+            background: rgba(0, 184, 148, 0.2);
+            color: var(--success);
+        }
+        
+        .wallet-button.connected:hover {
+            background: rgba(0, 184, 148, 0.3);
+        }
+        
+        .language-selector {
+            position: relative;
+        }
+        
+        #languageBtn {
+            background: rgba(255, 215, 0, 0.1);
+            border: none;
+            color: var(--text-color);
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 500;
+        }
+        
+        #languageBtn:hover {
+            background: rgba(255, 215, 0, 0.2);
+            color: var(--primary);
+        }
+        
+        .language-dropdown {
+            position: absolute;
+            right: 0;
+            top: calc(100% + 5px);
+            background: var(--nav-bg);
+            border-radius: 12px;
+            padding: 0.5rem 0;
+            box-shadow: var(--shadow-lg);
+            display: none;
+            min-width: 150px;
+            z-index: 100;
+            border: 1px solid rgba(255, 215, 0, 0.1);
+            animation: fadeIn 0.3s ease-out forwards;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .language-dropdown button {
+            display: block;
+            width: 100%;
+            padding: 0.5rem 1rem;
+            background: none;
+            border: none;
+            color: var(--text-color);
+            text-align: left;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .language-dropdown button:hover {
+            background: rgba(255, 215, 0, 0.1);
+            color: var(--primary);
+        }
+        
+        .language-dropdown button::before {
+            content: '';
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: transparent;
+            display: inline-block;
+            margin-right: 8px;
+            transition: var(--transition);
+        }
+        
+        .language-dropdown button.active::before {
+            background: var(--primary);
+        }
+        
+        .language-selector:hover .language-dropdown {
+            display: block;
+        }
+        
+        /* Mobile Menu Toggle */
+        .mobile-menu-toggle {
+            display: none;
+            background: transparent;
+            border: none;
+            color: var(--text-color);
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 4px;
+            transition: var(--transition);
+        }
+        
+        .mobile-menu-toggle:hover {
+            background: rgba(255, 215, 0, 0.1);
+        }
+        
+        /* Main Content */
+        .main-content {
+            padding-top: 70px;
+        }
+        
+        section {
+            padding: 5rem 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--primary);
+            border-radius: 3px;
+        }
+        
+        .section-subtitle {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        /* Hero Section */
+        .hero-section {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 3rem;
+            padding: 6rem 2rem;
+            min-height: 100vh;
+        }
+        
+        .hero-content {
+            flex: 1;
+        }
+        
+        .hero-section h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+            color: var(--primary);
+        }
+        
+        .hero-subtitle {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            max-width: 600px;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+        
+        .hero-button {
+            padding: 0.8rem 1.8rem;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        
+        .hero-button.primary {
+            background: var(--primary);
+            color: var(--secondary);
+            border: none;
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .hero-button.primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .hero-button.secondary {
+            background: transparent;
+            color: var(--text-color);
+            border: 2px solid rgba(255, 215, 0, 0.3);
+        }
+        
+        .hero-button.secondary:hover {
+            border-color: var(--primary);
+            transform: translateY(-3px);
+            color: var(--primary);
+        }
+        
+        .hero-stats {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-value {
+            font-size: 1.8rem;
+            font-weight: 700;
+            display: block;
+            margin-bottom: 0.3rem;
+            background: linear-gradient(90deg, var(--primary), var(--primary-dark));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+        
+        .hero-image {
+            flex: 1;
+            text-align: center;
+            position: relative;
+        }
+        
+        .hero-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: var(--shadow-xl);
+            border: 2px solid rgba(255, 215, 0, 0.2);
+            transition: var(--transition);
+        }
+        
+        .hero-image:hover img {
+            transform: scale(1.02);
+        }
+        
+        /* About Section */
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .about-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            transition: var(--transition);
+            border: 1px solid rgba(255, 215, 0, 0.1);
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .about-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+            border-color: rgba(255, 215, 0, 0.3);
+        }
+        
+        .about-card i {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+        }
+        
+        .about-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .about-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+        
+        /* Tokenomics Section */
+        .tokenomics-section {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 20px;
+            margin: 2rem auto;
+            border: 1px solid rgba(255, 215, 0, 0.1);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .tokenomics-container {
+            display: flex;
+            gap: 3rem;
+            align-items: center;
+        }
+        
+        .tokenomics-visual {
+            flex: 1;
+            position: relative;
+        }
+        
+        .chart-wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        
+        .chart-center-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+        
+        .chart-center-text span {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        .chart-center-text small {
+            display: block;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+        
+        .tokenomics-details {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .token-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            padding: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            transition: var(--transition);
+            border: 1px solid rgba(255, 215, 0, 0.1);
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .token-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+            border-color: rgba(255, 215, 0, 0.3);
+        }
+        
+        .token-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 215, 0, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 1.1rem;
+        }
+        
+        .token-info {
+            flex: 1;
+        }
+        
+        .token-info h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.3rem;
+        }
+        
+        .token-progress {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .progress-bar {
+            height: 8px;
+            background: linear-gradient(90deg, var(--primary), var(--primary-dark));
+            border-radius: 4px;
+            flex: 1;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .progress-bar::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.1);
+            animation: progressAnimation 2s ease-in-out infinite;
+        }
+        
+        @keyframes progressAnimation {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+        
+        /* Roadmap Section */
+        .roadmap-container {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            position: relative;
+            padding-left: 30px;
+        }
+        
+        .roadmap-container::before {
+            content: '';
+            position: absolute;
+            left: 15px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: rgba(255, 215, 0, 0.2);
+        }
+        
+        .roadmap-phase {
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            padding: 1.5rem;
+            position: relative;
+            border: 1px solid rgba(255, 215, 0, 0.1);
+            transition: var(--transition);
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .roadmap-phase:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+            border-color: rgba(255, 215, 0, 0.3);
+        }
+        
+        .roadmap-phase::before {
+            content: '';
+            position: absolute;
+            left: -30px;
+            top: 30px;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: var(--primary);
+            border: 3px solid var(--dark);
+            transition: var(--transition);
+        }
+        
+        .light-theme .roadmap-phase::before {
+            border-color: var(--dark);
+        }
+        
+        .roadmap-phase.active::before {
+            background: var(--success);
+        }
+        
+        .roadmap-phase.current::before {
+            background: var(--warning);
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(246, 194, 62, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(246, 194, 62, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(246, 194, 62, 0); }
+        }
+        
+        .phase-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        
+        .phase-badge {
+            background: rgba(255, 215, 0, 0.1);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--primary);
+        }
+        
+        .phase-status {
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+        }
+        
+        .roadmap-phase.active .phase-status {
+            background: rgba(0, 184, 148, 0.2);
+            color: var(--success);
+        }
+        
+        .roadmap-phase.current .phase-status {
+            background: rgba(246, 194, 62, 0.2);
+            color: var(--warning);
+        }
+        
+        .roadmap-phase .phase-status {
+            background: rgba(255, 215, 0, 0.1);
+            color: var(--text-secondary);
+        }
+        
+        .phase-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .phase-content ul {
+            list-style: none;
+        }
+        
+        .phase-content li {
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+        }
+        
+        .phase-content li i {
+            color: var(--primary);
+            margin-top: 0.2rem;
+        }
+        
+        /* Purchase Section */
+        .purchase-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .step {
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            padding: 1.5rem;
+            border: 1px solid rgba(255, 215, 0, 0.1);
+            transition: var(--transition);
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .step:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+            border-color: rgba(255, 215, 0, 0.3);
+        }
+        
+        .step-number {
+            width: 40px;
+            height: 40px;
+            background: var(--primary);
+            color: var(--secondary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        .step-content h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .step-content p {
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+        
+        .step-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .step-button {
+            background: rgba(255, 215, 0, 0.1);
+            border: none;
+            color: var(--text-color);
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            transition: var(--transition);
+            text-decoration: none;
+            cursor: pointer;
+        }
+        
+        .step-button:hover {
+            background: rgba(255, 215, 0, 0.2);
+            color: var(--primary);
+        }
+        
+        .step-button img {
+            width: 20px;
+            height: 20px;
+            object-fit: contain;
+        }
+        
+        .contract-address {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 0.8rem;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-family: monospace;
+            margin-top: 1rem;
+            overflow-x: auto;
+        }
+        
+        .copy-button {
+            background: transparent;
+            border: none;
+            color: var(--primary);
+            cursor: pointer;
+            padding: 0.2rem;
+            border-radius: 4px;
+            transition: var(--transition);
+        }
+        
+        .copy-button:hover {
+            background: rgba(255, 215, 0, 0.1);
+        }
+        
+        .copy-tooltip {
+            position: absolute;
+            background: var(--primary);
+            color: var(--secondary);
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            right: 10px;
+            top: -30px;
+            visibility: hidden;
+            opacity: 0;
+            transition: var(--transition);
+        }
+        
+        .purchase-notes {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .note {
+            background: rgba(255, 215, 0, 0.1);
+            border-left: 3px solid var(--primary);
+            padding: 0.8rem 1rem;
+            border-radius: 0 6px 6px 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            max-width: 400px;
+        }
+        
+        .note i {
+            color: var(--primary);
+        }
+        
+        .note p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+        
+        /* Sweep Section */
+        .sweep-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .sweep-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            padding: 2rem;
+            border: 1px solid rgba(255, 215, 0, 0.1);
+            transition: var(--transition);
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .sweep-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+            border-color: rgba(255, 215, 0, 0.3);
+        }
+        
+        .sweep-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 215, 0, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .sweep-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .sweep-card p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+        
+        .sweep-stats {
+            display: flex;
+            gap: 1.5rem;
+        }
+        
+        .sweep-stats .stat-item {
+            text-align: center;
+        }
+        
+        .sweep-stats .stat-value {
+            font-size: 1.5rem;
+            margin-bottom: 0.2rem;
+        }
+        
+        .sweep-stats .stat-label {
+            font-size: 0.8rem;
+        }
+        
+        .sweep-progress {
+            margin-top: 1.5rem;
+        }
+        
+        .progress-labels {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 0.5rem;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+        
+        .sweep-cta {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 2rem;
+        }
+        
+        .sweep-button {
+            background: var(--primary);
+            color: var(--secondary);
+            border: none;
+            padding: 0.6rem 1.5rem;
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 600;
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .sweep-button:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .apy-badge {
+            background: rgba(0, 184, 148, 0.2);
+            color: var(--success);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+        
+        .sweep-details {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .detail-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            padding: 1.5rem;
+            border: 1px solid rgba(255, 215, 0, 0.1);
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .detail-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+        
+        .detail-card ol, .detail-card ul {
+            padding-left: 1.2rem;
+            color: var(--text-secondary);
+        }
+        
+        .detail-card li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .detail-card strong {
+            color: var(--text-color);
+        }
+        
+        .sweep-disclaimer {
+            background: rgba(231, 74, 59, 0.1);
+            border-left: 3px solid var(--danger);
+            padding: 1rem;
+            border-radius: 0 6px 6px 0;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .sweep-disclaimer i {
+            color: var(--danger);
+            font-size: 1.2rem;
+        }
+        
+        .sweep-disclaimer p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+        
+        /* FAQ Section */
+        .faq-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .faq-item {
+            margin-bottom: 1rem;
+            border-radius: 8px;
+            overflow: hidden;
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 215, 0, 0.1);
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .faq-question {
+            width: 100%;
+            background: transparent;
+            border: none;
+            padding: 1.2rem 1.5rem;
+            text-align: left;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            font-weight: 500;
+            transition: var(--transition);
+            color: var(--text-color);
+        }
+        
+        .faq-question:hover {
+            background: rgba(255, 215, 0, 0.05);
+        }
+        
+        .faq-question i {
+            transition: var(--transition);
+        }
+        
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+        
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        
+        .faq-answer-content {
+            padding: 0 1.5rem 1.5rem;
+            color: var(--text-secondary);
+        }
+        
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+        }
+        
+        /* Social Section */
+        .social-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1.5rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .social-card {
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            border-radius: 8px;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+            transition: var(--transition);
+            text-decoration: none;
+            color: var(--text-color);
+            border: 1px solid rgba(255, 215, 0, 0.1);
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .social-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+            border-color: rgba(255, 215, 0, 0.3);
+            color: var(--primary);
+        }
+        
+        .social-card i {
+            font-size: 2rem;
+        }
+        
+        .social-card img {
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
+        }
+        
+        /* Footer */
+        .main-footer {
+            background: #0a0a0a;
+            padding: 4rem 2rem 2rem;
+            transition: var(--transition);
+        }
+        
+        .light-theme .main-footer {
+            background: #e0e0e0;
+        }
+        
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+        }
+        
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .footer-logo img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+        }
+        
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .logo-text span {
+            font-weight: 600;
+            color: var(--text-color);
+        }
+        
+        .logo-text small {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+        
+        .footer-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 2rem;
+            width: 100%;
+        }
+        
+        .link-group h4 {
+            font-size: 1.1rem;
+            margin-bottom: 1.2rem;
+            color: var(--primary);
+        }
+        
+        .link-group a {
+            display: block;
+            color: var(--text-secondary);
+            margin-bottom: 0.7rem;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+        
+        .link-group a:hover {
+            color: var(--primary);
+            transform: translateX(5px);
+        }
+        
+        .footer-bottom {
+            max-width: 1400px;
+            margin: 3rem auto 0;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 215, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        .copyright {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+        
+        .footer-social {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .footer-social a {
+            color: var(--text-secondary);
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+        
+        .footer-social a:hover {
+            color: var(--primary);
+            background: rgba(255, 215, 0, 0.1);
+        }
+        
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 50px;
+            height: 50px;
+            background: var(--primary);
+            color: var(--secondary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+            opacity: 0;
+            visibility: hidden;
+            z-index: 999;
+            box-shadow: var(--shadow-md);
+            border: none;
+        }
+        
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            transform: translateY(-5px);
+            background: var(--primary-dark);
+        }
+        
+        /* Loading Animation */
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+        }
+        
+        .loading-spinner {
+            width: 50px;
+            height: 50px;
+            border: 3px solid rgba(255, 215, 0, 0.3);
+            border-radius: 50%;
+            border-top-color: var(--primary);
+            animation: spin 1s ease-in-out infinite;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .hero-section h1 {
+                font-size: 2.5rem;
+            }
+            
+            .section-title {
+                font-size: 2.2rem;
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .hero-section {
+                flex-direction: column;
+                text-align: center;
+                padding: 4rem 2rem;
+                min-height: auto;
+            }
+            
+            .hero-content {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .hero-buttons, .hero-stats {
+                justify-content: center;
+            }
+            
+            .tokenomics-container {
+                flex-direction: column;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .footer-logo {
+                justify-content: center;
+            }
+            
+            .link-group a:hover {
+                transform: none;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-content {
+                flex-direction: row;
+                height: 70px;
+                padding: 0 1rem;
+            }
+            
+            .nav-menu {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                right: 0;
+                background: var(--nav-bg);
+                flex-direction: column;
+                align-items: center;
+                padding: 2rem;
+                gap: 1.5rem;
+                margin: 0;
+                transform: translateY(-100%);
+                opacity: 0;
+                transition: transform 0.3s ease, opacity 0.3s ease;
+                box-shadow: var(--shadow-md);
+                z-index: 999;
+            }
+            
+            .nav-menu.active {
+                transform: translateY(0);
+                opacity: 1;
+            }
+            
+            .mobile-menu-toggle {
+                display: block;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .hero-section h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+            
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+                gap: 1.5rem;
+            }
+            
+            .footer-social {
+                justify-content: center;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            section {
+                padding: 3rem 1rem;
+            }
+            
+            .hero-section {
+                padding: 3rem 1rem;
+            }
+            
+            .hero-section h1 {
+                font-size: 1.8rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .section-title::after {
+                width: 60px;
+                height: 2px;
+                bottom: -8px;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                width: 100%;
+            }
+            
+            .hero-button {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .back-to-top {
+                width: 40px;
+                height: 40px;
+                bottom: 1rem;
+                right: 1rem;
+            }
+        }
+    </style>
+</head>
+<body class="dark-theme">
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-spinner"></div>
+    </div>
+    
+    <!-- Scripts -->
+    <script src="assets/js/vendors/web3.min.js"></script>
+    <script src="assets/js/vendors/anime.min.js"></script>
+    <script src="assets/js/core/config.js"></script>
+    <script src="assets/js/core/utils.js"></script>
+    <script src="assets/js/core/app.js"></script>
+    <script src="assets/js/modules/web3/connector.js"></script>
+    <script src="assets/js/modules/web3/nft.js"></script>
+    <script src="assets/js/modules/chatbot/core.js"></script>
+    <script src="assets/js/modules/chatbot/ui.js"></script>
+    <script src="assets/js/modules/game/engine.js"></script>
+    <script src="assets/js/modules/game/rewards.js"></script>
+    <script src="assets/js/modules/community/telegram.js"></script>
+    <script src="assets/js/modules/community/twitter.js"></script>
+
+
+    <!-- Skip to Content Link -->
+    <a href="#main-content" class="skip-link">Skip to Content</a>
+    
+    <!-- Navbar -->
+    <nav class="nav-container" aria-label="Main navigation">
+        <div class="nav-content">
+            <a href="#home" class="logo">
+                <img src="https://apricot-select-bird-538.mypinata.cloud/ipfs/bafybeihlqyynsp4ggbyhnl25paoftubfddzklwapxinfjhlqkozuftixne" 
+                     alt="NSC Logo">
+                <span>Not Sell Coin</span>
+            </a>
+            
+            <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu" aria-expanded="false">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <div class="nav-menu" id="navMenu">
+                <a href="#about" class="nav-link">
+                    <i class="fas fa-info-circle"></i>
+                    <span>About</span>
+                </a>
+                <a href="#tokenomics" class="nav-link">
+                    <i class="fas fa-chart-pie"></i>
+                    <span>Tokenomics</span>
+                </a>
+                <a href="#roadmap" class="nav-link">
+                    <i class="fas fa-map-marked-alt"></i>
+                    <span>Roadmap</span>
+                </a>
+                <a href="#buy" class="nav-link">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span>Buy</span>
+                </a>
+                <a href="#sweep" class="nav-link">
+                    <i class="fas fa-broom"></i>
+                    <span>Sweep</span>
+                </a>
+            </div>
+            
+            <div class="nav-utils">
+                <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">
+                    <span class="theme-icon light">
+                        <i class="fas fa-sun"></i>
+                    </span>
+                    <span class="theme-icon dark">
+                        <i class="fas fa-moon"></i>
+                    </span>
+                </button>
+                
+                <button id="connectWallet" class="wallet-button">
+                    <i class="fas fa-wallet"></i> 
+                    <span class="wallet-text">Connect Wallet</span>
+                </button>
+                
+                <div class="language-selector">
+                    <button id="languageBtn" aria-label="Language selector" aria-expanded="false">
+                        <i class="fas fa-globe"></i>
+                        <span id="currentLanguage">EN</span>
+                    </button>
+                    <div class="language-dropdown">
+                        <button data-lang="en" class="active">English</button>
+                        <button data-lang="id">Bahasa Indonesia</button>
+                        <button data-lang="es">Español (Spanish)</button>
+                        <button data-lang="zh">中文 (Chinese)</button>
+                        <button data-lang="ar">العربية (Arabic)</button>
+                        <button data-lang="de">Deutsch (German)</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content" id="main-content">
+        <!-- Hero Section -->
+        <section class="hero-section" id="home" data-aos="fade-up">
+            <div class="hero-content">
+                <h1>Not Sell Coin - Ultimate Hold Token</h1>
+                <p class="hero-subtitle">Anti-dump mechanism with automatic rewards for long-term holders</p>
+                <div class="hero-buttons">
+                    <a href="#buy" class="hero-button primary">Buy Now</a>
+                    <a href="#" class="hero-button secondary">Whitepaper</a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-value">$0.0025</span>
+                        <span class="stat-label">Current Price</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value">42,689</span>
+                        <span class="stat-label">Holders</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value">$1.2M</span>
+                        <span class="stat-label">Market Cap</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-image" data-aos="fade-left">
+                <img src="https://apricot-select-bird-538.mypinata.cloud/ipfs/bafybeibexes24hlsujhufqeg7v5llr3f4pp2m5pvhnm56ptmkfplerxd6y/sampun%20NSC.png" 
+                     alt="NSC Token Visualization" 
+                     loading="lazy">
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="about-section" id="about" data-aos="fade-up">
+            <div class="section-header">
+                <h2 class="section-title">About NSC</h2>
+                <p class="section-subtitle">Revolutionary tokenomics for sustainable growth</p>
+            </div>
+            <div class="about-grid">
+                <div class="about-card" tabindex="0" data-aos="fade-up" data-aos-delay="100">
+                    <i class="fas fa-lock"></i>
+                    <h3>Anti-Dump</h3>
+                    <p>Smart contract with built-in mechanisms to prevent mass selling and protect holders</p>
+                </div>
+                <div class="about-card" tabindex="0" data-aos="fade-up" data-aos-delay="200">
+                    <i class="fas fa-coins"></i>
+                    <h3>Auto Rewards</h3>
+                    <p>Earn passive income through our automatic redistribution system</p>
+                </div>
+                <div class="about-card" tabindex="0" data-aos="fade-up" data-aos-delay="300">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Secure</h3>
+                    <p>Audited smart contract with multi-layered security</p>
+                </div>
+                <div class="about-card" tabindex="0" data-aos="fade-up" data-aos-delay="400">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>Growth</h3>
+                    <p>Strategic tokenomics designed for long-term appreciation</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tokenomics Section -->
+        <section class="tokenomics-section" id="tokenomics" data-aos="fade-up">
+            <div class="section-header">
+                <h2 class="section-title">Tokenomics</h2>
+                <p class="section-subtitle">Token distribution designed for sustainable growth</p>
+            </div>
+            
+            <div class="tokenomics-container">
+                <div class="tokenomics-visual" data-aos="fade-right">
+                    <div class="chart-wrapper">
+                        <canvas id="tokenChart"></canvas>
+                        <div class="chart-center-text">
+                            <span>1B</span>
+                            <small>Total Supply</small>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tokenomics-details" data-aos="fade-left">
+                    <div class="token-card">
+                        <div class="token-icon">
+                            <i class="fas fa-coins"></i>
+                        </div>
+                        <div class="token-info">
+                            <h3>Presale</h3>
+                            <div class="token-progress">
+                                <div class="progress-bar" style="width: 40%"></div>
+                                <span>40% (400M NSC)</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="token-card">
+                        <div class="token-icon">
+                            <i class="fas fa-exchange-alt"></i>
+                        </div>
+                        <div class="token-info">
+                            <h3>Liquidity</h3>
+                            <div class="token-progress">
+                                <div class="progress-bar" style="width: 30%"></div>
+                                <span>30% (300M NSC)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="token-card">
+                        <div class="token-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="token-info">
+                            <h3>Marketing</h3>
+                            <div class="token-progress">
+                                <div class="progress-bar" style="width: 15%"></div>
+                                <span>15% (150M NSC)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="token-card">
+                        <div class="token-icon">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <div class="token-info">
+                            <h3>Rewards</h3>
+                            <div class="token-progress">
+                                <div class="progress-bar" style="width: 10%"></div>
+                                <span>10% (100M NSC)</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="token-card">
+                        <div class="token-icon">
+                            <i class="fas fa-cog"></i>
+                        </div>
+                        <div class="token-info">
+                            <h3>Development</h3>
+                            <div class="token-progress">
+                                <div class="progress-bar" style="width: 5%"></div>
+                                <span>5% (50M NSC)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Roadmap Section -->
+        <section class="roadmap-section" id="roadmap" data-aos="fade-up">
+            <div class="section-header">
+                <h2 class="section-title">Project Roadmap</h2>
+                <p class="section-subtitle">Our strategic vision for NSC development</p>
+            </div>
+            
+            <div class="roadmap-container">
+                <div class="roadmap-phase active" data-aos="fade-up" data-aos-delay="100">
+                    <div class="phase-header">
+                        <div class="phase-badge">Q1 2024</div>
+                        <div class="phase-status">Completed</div>
+                    </div>
+                    <div class="phase-content">
+                        <h3>Foundation Phase</h3>
+                        <ul>
+                            <li><i class="fas fa-check"></i> Smart contract development</li>
+                            <li><i class="fas fa-check"></i> Certik audit completed</li>
+                            <li><i class="fas fa-check"></i> Website launch</li>
+                            <li><i class="fas fa-check"></i> Initial community building</li>
+                            <li><i class="fas fa-check"></i> First 1,000 holders</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="roadmap-phase current" data-aos="fade-up" data-aos-delay="200">
+                    <div class="phase-header">
+                        <div class="phase-badge">Q2 2025</div>
+                        <div class="phase-status">In Progress</div>
+                    </div>
+                    <div class="phase-content">
+                        <h3>Growth Phase</h3>
+                        <ul>
+                            <li><i class="fas fa-rocket"></i> Public presale launch</li>
+                            <li><i class="fas fa-exchange-alt"></i> First DEX listing</li>
+                            <li><i class="fas fa-users"></i> Reach 10,000 holders</li>
+                            <li><i class="fas fa-chart-line"></i> CMC & CG listings</li>
+                            <li><i class="fas fa-code"></i> NSC Sweep v1 launch</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="roadmap-phase" data-aos="fade-up" data-aos-delay="300">
+                    <div class="phase-header">
+                        <div class="phase-badge">Q3 2025</div>
+                        <div class="phase-status">Coming Soon</div>
+                    </div>
+                    <div class="phase-content">
+                        <h3>Expansion Phase</h3>
+                        <ul>
+                            <li><i class="fas fa-globe"></i> Major exchange listing</li>
+                            <li><i class="fas fa-mobile-alt"></i> Mobile app development</li>
+                            <li><i class="fas fa-hand-holding-usd"></i> Staking platform launch</li>
+                            <li><i class="fas fa-parachute-box"></i> NFT integration</li>
+                            <li><i class="fas fa-gem"></i> NSC Sweep v2 upgrade</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="roadmap-phase" data-aos="fade-up" data-aos-delay="400">
+                    <div class="phase-header">
+                        <div class="phase-badge">Q4 2025</div>
+                        <div class="phase-status">Planning</div>
+                    </div>
+                    <div class="phase-content">
+                        <h3>Ecosystem Phase</h3>
+                        <ul>
+                            <li><i class="fas fa-store"></i> NSC Marketplace</li>
+                            <li><i class="fas fa-wallet"></i> NSC Wallet app</li>
+                            <li><i class="fas fa-gamepad"></i> Play-to-Earn game</li>
+                            <li><i class="fas fa-landmark"></i> DAO Governance</li>
+                            <li><i class="fas fa-globe-americas"></i> Global expansion</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Purchase Section -->
+        <section class="purchase-section" id="buy" data-aos="fade-up">
+            <div class="section-header">
+                <h2 class="section-title">How to Buy NSC</h2>
+                <p class="section-subtitle">Get NSC tokens in just a few simple steps</p>
+            </div>
+            
+            <div class="purchase-steps">
+                <div class="step" data-aos="fade-up" data-aos-delay="100">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Get a Wallet</h3>
+                        <p>Download MetaMask or Trust Wallet from official sources</p>
+                        <div class="step-buttons">
+                            <a href="https://metamask.io/" target="_blank" rel="noopener noreferrer" class="step-button">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/36/MetaMask_Fox.svg/1200px-MetaMask_Fox.svg.png" alt="MetaMask" loading="lazy">
+                                MetaMask
+                            </a>
+                            <a href="https://trustwallet.com/" target="_blank" rel="noopener noreferrer" class="step-button">
+                                <img src="https://trustwallet.com/assets/images/media/assets/TWT.png" alt="Trust Wallet" loading="lazy">
+                                Trust Wallet
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="step" data-aos="fade-up" data-aos-delay="200">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Fund Your Wallet</h3>
+                        <p>Buy BNB from an exchange and send it to your wallet</p>
+                        <div class="step-buttons">
+                            <a href="#" class="step-button">
+                                <i class="fas fa-exchange-alt"></i>
+                                Buy BNB
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="step" data-aos="fade-up" data-aos-delay="300">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Connect to PancakeSwap</h3>
+                        <p>Visit PancakeSwap and connect your wallet</p>
+                        <div class="step-buttons">
+                            <a href="https://pancakeswap.finance/" target="_blank" rel="noopener noreferrer" class="step-button">
+                                <img src="https://pancakeswap.finance/logo.png" alt="PancakeSwap" loading="lazy">
+                                PancakeSwap
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="step" data-aos="fade-up" data-aos-delay="400">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>Swap BNB for NSC</h3>
+                        <p>Enter our contract and swap BNB for NSC</p>
+                        <div class="contract-address">
+                            <code id="contractAddress">0x89205A3A3b2A69De6Dbf7f01ED13B2108B2c43e7</code>
+                            <button class="copy-button" aria-label="Copy contract address" data-clipboard-target="#contractAddress">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                            <span class="copy-tooltip">Copied!</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="purchase-notes">
+                <div class="note" data-aos="fade-up">
+                    <i class="fas fa-info-circle"></i>
+                    <p>Slippage tolerance should be set to 5-7% for successful transactions</p>
+                </div>
+                <div class="note" data-aos="fade-up">
+                    <i class="fas fa-gas-pump"></i>
+                    <p>Make sure you have enough BNB for gas fees (0.005-0.01 BNB recommended)</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- NSC Sweep Section -->
+        <section class="sweep-section" id="sweep" data-aos="fade-up">
+            <div class="section-header">
+                <h2 class="section-title">NSC Sweep Protocol</h2>
+                <p class="section-subtitle">Auto-compound your rewards for maximum returns</p>
+            </div>
+            
+            <div class="sweep-cards">
+                <div class="sweep-card" tabindex="0" data-aos="fade-up" data-aos-delay="100">
+                    <div class="sweep-icon">
+                        <i class="fas fa-broom"></i>
+                    </div>
+                    <h3>Auto-Compounding</h3>
+                    <p>Automatically reinvests your rewards for maximum returns</p>
+                    <div class="sweep-stats">
+                        <div class="stat-item">
+                            <span class="stat-value">5.2%</span>
+                            <span class="stat-label">Daily ROI</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value">12.8K</span>
+                            <span class="stat-label">Active Users</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="sweep-card" tabindex="0" data-aos="fade-up" data-aos-delay="200">
+                    <div class="sweep-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Risk-Free Period</h3>
+                    <p>First 30 days protected by our anti-dump shield</p>
+                    <div class="sweep-progress">
+                        <div class="progress-bar" style="width: 65%"></div>
+                        <div class="progress-labels">
+                            <span>Day 19/30</span>
+                            <span>65% Complete</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="sweep-card" tabindex="0" data-aos="fade-up" data-aos-delay="300">
+                    <div class="sweep-icon">
+                        <i class="fas fa-chart-pie"></i>
+                    </div>
+                    <h3>Yield Dashboard</h3>
+                    <p>Real-time tracking of your compounded earnings</p>
+                    <div class="sweep-cta">
+                        <button class="sweep-button" aria-label="Start sweeping">
+                            <i class="fas fa-play"></i> Start Sweeping
+                        </button>
+                        <span class="apy-badge">APY: 892%</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="sweep-details">
+                <div class="detail-card" data-aos="fade-up">
+                    <h3>How It Works</h3>
+                    <ol>
+                        <li>Deposit NSC tokens into sweep protocol</li>
+                        <li>Smart contract automatically claims rewards every 6 hours</li>
+                        <li>Rewards are compounded back into your principal</li>
+                        <li>Withdraw anytime after the risk-free period</li>
+                    </ol>
+                </div>
+                
+                <div class="detail-card" data-aos="fade-up">
+                    <h3>Fee Structure</h3>
+                    <ul>
+                        <li><strong>Deposit Fee:</strong> 5% (4% to liquidity, 1% to marketing)</li>
+                        <li><strong>Withdrawal Fee:</strong> 3% before 30 days, 1% after</li>
+                        <li><strong>Performance Fee:</strong> 10% on profits</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="sweep-disclaimer" data-aos="fade-up">
+                <i class="fas fa-info-circle"></i>
+                <p>Sweep protocol automatically claims and compounds rewards every 6 hours. Past performance is not indicative of future results.</p>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq-section" data-aos="fade-up">
+            <div class="section-header">
+                <h2 class="section-title">Frequently Asked Questions</h2>
+                <p class="section-subtitle">Find answers to commonly asked questions</p>
+            </div>
+            
+            <div class="faq-container">
+                <div class="faq-item" data-aos="fade-up">
+                    <button class="faq-question" aria-expanded="false" aria-controls="faq1">
+                        <span class="faq-text">What is Not Sell Coin?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div id="faq1" class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>Not Sell Coin (NSC) is a cryptocurrency token with anti-dump mechanisms and automatic reward systems designed to encourage long-term holding and protect investors from high volatility.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="faq-item" data-aos="fade-up">
+                    <button class="faq-question" aria-expanded="false" aria-controls="faq2">
+                        <span class="faq-text">How does the anti-dump mechanism work?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div id="faq2" class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>The NSC smart contract implements progressive fees for large sales, limits on sale amounts per transaction, and delays for large sales, all designed to prevent dumping and protect token price.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="faq-item" data-aos="fade-up">
+                    <button class="faq-question" aria-expanded="false" aria-controls="faq3">
+                        <span class="faq-text">How does the reward system work?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div id="faq3" class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>Every transaction incurs a 5% fee that is distributed to all holders proportionally based on the amount of NSC held. The longer you hold, the more rewards you receive.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="faq-item" data-aos="fade-up">
+                    <button class="faq-question" aria-expanded="false" aria-controls="faq4">
+                        <span class="faq-text">Where can I buy NSC?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div id="faq4" class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>NSC is currently available on PancakeSwap. You can follow the purchase guide in the <a href="#buy">How to Buy</a> section above.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="faq-item" data-aos="fade-up">
+                    <button class="faq-question" aria-expanded="false" aria-controls="faq5">
+                        <span class="faq-text">Is the smart contract audited?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div id="faq5" class="faq-answer">
+                        <div class="faq-answer-content">
+                            <p>Yes, the NSC smart contract has been audited by Certik. You can view the full audit report on our <a href="#" target="_blank">audit page</a>.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Social & Links Section -->
+        <section class="social-section" data-aos="fade-up">
+            <div class="section-header">
+                <h2 class="section-title">Join Our Community</h2>
+                <p class="section-subtitle">Connect with us across various platforms</p>
+            </div>
+            <div class="social-links">
+                <a href="https://coinmarketcap.com/currencies/not-sell-coin" target="_blank" rel="noopener noreferrer" class="social-card" aria-label="CoinMarketCap">
+                    <img src="https://apricot-select-bird-538.mypinata.cloud/ipfs/bafybeiaew7rzgcihij7bglwmv25cxthgrm2sl2ljc24f3ygysw5rl5fbbq/cmc.png" alt="CoinMarketCap" loading="lazy">
+                    <span>CoinMarketCap</span>
+                </a>
+                <a href="https://t.me/NotsellNSC" target="_blank" rel="noopener noreferrer" class="social-card" aria-label="Telegram">
+                    <i class="fab fa-telegram"></i>
+                    <span>Telegram</span>
+                </a>
+                <a href="https://discord.gg/EKR7BRSJFD" target="_blank" rel="noopener noreferrer" class="social-card" aria-label="Discord">
+                    <i class="fab fa-discord"></i>
+                    <span>Discord</span>
+                </a>
+                <a href="https://x.com/Notsell_NSC" target="_blank" rel="noopener noreferrer" class="social-card" aria-label="Twitter/X">
+                    <i class="fab fa-twitter"></i>
+                    <span>Twitter/X</span>
+                </a>
+                <a href="https://www.youtube.com/@NotSellOfficial" target="_blank" rel="noopener noreferrer" class="social-card" aria-label="YouTube">
+                    <i class="fab fa-youtube"></i>
+                    <span>YouTube</span>
+                </a>
+                <a href="https://dexscreener.com/ethereum/your-pool-address" target="_blank" rel="noopener noreferrer" class="social-card" aria-label="DEX Screener">
+                    <img src="https://apricot-select-bird-538.mypinata.cloud/ipfs/bafybeiaew7rzgcihij7bglwmv25cxthgrm2sl2ljc24f3ygysw5rl5fbbq/DEX_Screener.png" alt="DEX Screener" loading="lazy">
+                    <span>DEX Screener</span>
+                </a>
+                <a href="https://coingecko.com/en/coins/not-sell-coin" target="_blank" rel="noopener noreferrer" class="social-card" aria-label="CoinGecko">
+                    <img src="https://static.coingecko.com/s/coingecko-logo-8903d34ce19ca4be1c81f0db30e924154750d208683fad7ae6f2ce06c76d0a56.png" alt="CoinGecko" loading="lazy">
+                    <span>CoinGecko</span>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="https://apricot-select-bird-538.mypinata.cloud/ipfs/bafybeihlqyynsp4ggbyhnl25paoftubfddzklwapxinfjhlqkozuftixne" alt="NSC Logo" loading="lazy">
+                <div class="logo-text">
+                    <span>Not Sell Coin</span>
+                    <small>The Ultimate Hold Token</small>
+                </div>
+            </div>
+            <div class="footer-links">
+                <div class="link-group">
+                    <h4>Resources</h4>
+                    <a href="#" target="_blank">Whitepaper</a>
+                    <a href="#" target="_blank">Audit Report</a>
+                    <a href="#" target="_blank">GitHub</a>
+                    <a href="#" target="_blank">Blog</a>
+                </div>
+                <div class="link-group">
+                    <h4>Company</h4>
+                    <a href="#">About Us</a>
+                    <a href="#">Team</a>
+                    <a href="#">Careers</a>
+                    <a href="#">Partners</a>
+                </div>
+                <div class="link-group">
+                    <h4>Legal</h4>
+                    <a href="#">Terms</a>
+                    <a href="#">Privacy</a>
+                    <a href="#">Disclaimer</a>
+                    <a href="#">Cookie Policy</a>
+                </div>
+                <div class="link-group">
+                    <h4>Support</h4>
+                    <a href="#">Help Center</a>
+                    <a href="#">Contact Us</a>
+                    <a href="#">FAQ</a>
+                    <a href="#">Status</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="copyright">
+                <p>© 2024 Not Sell Coin. All rights reserved</p>
+            </div>
+            <div class="footer-social">
+                <a href="#" aria-label="Facebook" target="_blank"><i class="fab fa-facebook"></i></a>
+                <a href="#" aria-label="Instagram" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="LinkedIn" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="#" aria-label="Medium" target="_blank"><i class="fab fa-medium"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize AOS animation
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true,
+            offset: 100
+        });
+
+        // Loading overlay
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                document.getElementById('loadingOverlay').style.opacity = '0';
+                setTimeout(function() {
+                    document.getElementById('loadingOverlay').style.display = 'none';
+                }, 500);
+            }, 1000);
+        });
+
+        // Mobile menu toggle
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const navMenu = document.getElementById('navMenu');
+        
+        mobileMenuToggle.addEventListener('click', function() {
+            const expanded = this.getAttribute('aria-expanded') === 'true';
+            this.setAttribute('aria-expanded', !expanded);
+            navMenu.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                mobileMenuToggle.setAttribute('aria-expanded', 'false');
+            });
+        });
+
+        // Initialize tokenomics chart
+        document.addEventListener('DOMContentLoaded', function() {
+            const ctx = document.getElementById('tokenChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Presale', 'Liquidity', 'Marketing', 'Rewards', 'Development'],
+                    datasets: [{
+                        data: [40, 30, 15, 10, 5],
+                        backgroundColor: [
+                            '#FFD700',
+                            '#D4AF37',
+                            '#FFDF00',
+                            '#FFEC8B',
+                            '#F0E68C'
+                        ],
+                        borderWidth: 0
+                    }]
+                },
+                options: {
+                    cutout: '70%',
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: {
+                                usePointStyle: true,
+                                padding: 20,
+                                color: 'var(--text-color)'
+                            }
+                        }
+                    }
+                }
+            });
+
+            // Theme toggle with animation
+            const themeToggle = document.getElementById('themeToggle');
+            themeToggle.addEventListener('click', function() {
+                document.body.classList.toggle('dark-theme');
+                document.body.classList.toggle('light-theme');
+                
+                // Save preference
+                const isDark = document.body.classList.contains('dark-theme');
+                localStorage.setItem('themePreference', isDark ? 'dark' : 'light');
+            });
+            
+            // Check saved theme preference
+            if (localStorage.getItem('themePreference') === 'light') {
+                document.body.classList.remove('dark-theme');
+                document.body.classList.add('light-theme');
+            }
+            
+            // Language selector
+            const languageBtn = document.getElementById('languageBtn');
+            const currentLanguage = document.getElementById('currentLanguage');
+            const languageDropdown = document.querySelector('.language-dropdown');
+            
+            languageBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                const expanded = this.getAttribute('aria-expanded') === 'true';
+                this.setAttribute('aria-expanded', !expanded);
+                languageDropdown.style.display = expanded ? 'none' : 'block';
+            });
+            
+            // Handle language selection
+            document.querySelectorAll('.language-dropdown button').forEach(button => {
+                button.addEventListener('click', function() {
+                    const lang = this.getAttribute('data-lang');
+                    const text = this.textContent.split(' ')[0];
+                    
+                    // Update current language display
+                    currentLanguage.textContent = lang.toUpperCase();
+                    
+                    // Set active state
+                    document.querySelectorAll('.language-dropdown button').forEach(btn => {
+                        btn.classList.remove('active');
+                    });
+                    this.classList.add('active');
+                    
+                    // Close dropdown
+                    languageBtn.setAttribute('aria-expanded', 'false');
+                    languageDropdown.style.display = 'none';
+                    
+                    // Here you would typically load language translations
+                    console.log(`Language changed to ${lang}`);
+                });
+            });
+            
+            // Close dropdown when clicking outside
+            document.addEventListener('click', function() {
+                languageBtn.setAttribute('aria-expanded', 'false');
+                languageDropdown.style.display = 'none';
+            });
+            
+            // Wallet connection
+            document.getElementById('connectWallet').addEventListener('click', function() {
+                // Simulate wallet connection
+                this.innerHTML = '<i class="fas fa-wallet"></i> 0x7f...3a4b';
+                this.classList.add('connected');
+            });
+            
+            // FAQ accordion
+            document.querySelectorAll('.faq-question').forEach(question => {
+                question.addEventListener('click', function() {
+                    const item = this.parentElement;
+                    const answer = document.getElementById(this.getAttribute('aria-controls'));
+                    const expanded = this.getAttribute('aria-expanded') === 'true';
+                    
+                    // Close all other items
+                    document.querySelectorAll('.faq-item').forEach(faq => {
+                        if (faq !== item) {
+                            faq.classList.remove('active');
+                            faq.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+                            faq.querySelector('.faq-answer').style.maxHeight = '0';
+                        }
+                    });
+                    
+                    // Toggle current item
+                    item.classList.toggle('active');
+                    this.setAttribute('aria-expanded', !expanded);
+                    answer.style.maxHeight = expanded ? '0' : answer.scrollHeight + 'px';
+                });
+            });
+            
+            // Copy contract address
+            if (typeof ClipboardJS !== 'undefined') {
+                new ClipboardJS('.copy-button');
+                
+                document.querySelectorAll('.copy-button').forEach(button => {
+                    button.addEventListener('click', function() {
+                        const tooltip = this.nextElementSibling;
+                        tooltip.style.visibility = 'visible';
+                        tooltip.style.opacity = '1';
+                        setTimeout(() => {
+                            tooltip.style.visibility = 'hidden';
+                            tooltip.style.opacity = '0';
+                        }, 2000);
+                    });
+                });
+            }
+            
+            // Back to top button
+            const backToTopButton = document.getElementById('backToTop');
+            
+            window.addEventListener('scroll', function() {
+                if (window.pageYOffset > 300) {
+                    backToTopButton.classList.add('visible');
+                } else {
+                    backToTopButton.classList.remove('visible');
+                }
+            });
+            
+            backToTopButton.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+            
+            // Smooth scrolling for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        const offset = 70; // Adjust for fixed header
+                        const elementPosition = targetElement.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - offset;
+                        
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
